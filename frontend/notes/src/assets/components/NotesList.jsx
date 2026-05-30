@@ -15,8 +15,10 @@ const NotesList = () => {
     }, [])
 
     const deleteNote = async(id) => {
-        await axios.delete(`http://localhost:5000/api/deleteNote/${id}`)
-
+        let bool = window.confirm('Are you sure you want to delete this?')
+        if(bool){
+            await axios.delete(`http://localhost:5000/api/deleteNote/${id}`)
+        }    
         fetchNotes()
     }
 

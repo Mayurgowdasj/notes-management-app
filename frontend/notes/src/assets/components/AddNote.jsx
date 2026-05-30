@@ -13,13 +13,16 @@ const AddNote = () => {
             title,
             description
         }
+        let bool = window.confirm(`Are you sure you want to add this note, Title: ${title}, Description: ${description}`)
+        if(bool){
 
-        await axios.post('http://localhost:5000/api/addNote', newNote)
+            await axios.post('http://localhost:5000/api/addNote', newNote)
 
-        alert('Note Added')
+            alert('Note Added')
 
-        setTitle('')
-        setDescription('')
+            setTitle('')
+            setDescription('')
+        }
     }
 
     return (
